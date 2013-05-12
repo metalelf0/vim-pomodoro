@@ -31,11 +31,11 @@ nmap <F7> <ESC>:PomodoroStart<CR>
 
 function! PomodoroStatus() 
 	if g:pomodoro_started == 0
-		return "Pomodoro inactive"
+		return '--:--'
 	elseif g:pomodoro_started == 1
-		return "Pomodoro started (remaining: " . pomodorocommands#remaining_time() . " minutes)"
+		return pomodorocommands#remaining_time()
 	elseif g:pomodoro_started == 2
-		return "Pomodoro break started"
+		return "Break"
 	endif
 endfunction
 

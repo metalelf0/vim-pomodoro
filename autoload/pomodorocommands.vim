@@ -16,7 +16,9 @@ function! pomodorocommands#notify()
 endfunction
 
 function! pomodorocommands#remaining_time() 
-	return (g:pomodoro_time_work * 60 - abs(localtime() - g:pomodoro_started_at)) / 60
+	let g:minutes = (g:pomodoro_time_work * 60 - abs(localtime() - g:pomodoro_started_at)) / 60
+	let g:seconds = printf("%02d", 60 - abs((g:pomodoro_started_at - localtime()) % 60))
+  return (g:minutes . ":" . g:seconds)
 endfunction
 
 
